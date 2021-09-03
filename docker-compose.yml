@@ -1,0 +1,21 @@
+version: '3'
+services:
+    backend:
+        image: luizalabs-backend
+        depends_on:
+            - database
+        ports:
+            - "8080:8080"
+    database:
+        image: mysql:8.0.26
+        ports:
+            - "3306:3036"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: Luizalabs
+            MYSQL_USER: magalu
+            MYSQL_PASSWORD: magalu
+        volumes:
+            luizalabs-db:/var/lib/mysql
+volumes:
+  luizalabs-db:
